@@ -1,0 +1,34 @@
+@import 'styles-variables';
+
+@import '~bootstrap/scss/bootstrap';
+@import 'style-reset';
+
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+@import './styles/themes/dark-theme.scss';
+@import './styles/themes/light-theme.scss';
+
+// import custom component themes here
+@import 'styles-reset.scss-theme';
+@import 'app/modules/home/page/project-item/project-item.component.scss-theme.scss';
+@import 'app/modules/home/page/project-details/project-details.component.scss-theme.scss';
+@import 'app/modules/contact/page/contact/contact.component.scss-theme.scss';
+
+@mixin custom-components-theme($theme) {
+  @include my-styles-reset-theme($theme);
+  @include my-project-item-component-theme($theme);
+  @include my-project-description-component-theme($theme);
+  @include my-contact-component-theme($theme);
+}
+
+.my-light-theme {
+  @include angular-material-theme($my-light-theme);
+  @include custom-components-theme($my-light-theme);
+}
+
+.my-dark-theme {
+  @include angular-material-theme($my-dark-theme);
+  @include custom-components-theme($my-dark-theme);
+}

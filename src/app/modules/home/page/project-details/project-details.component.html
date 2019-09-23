@@ -1,0 +1,12 @@
+<mat-card class="custom-card front">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{ (project$ | async)?.title }}</mat-card-title>
+    <mat-card-subtitle>{{ (project$ | async)?.subtitle }}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image [src]="(project$ | async)?.thumbnail" [alt]="(project$ | async)?.thumbnailAltTxt">
+  <mat-card-content>{{ (project$ | async)?.content }}</mat-card-content>
+  <mat-card-actions>
+    <button class="active" mat-button [routerLink]="['/dashboard/home']">Close</button>
+  </mat-card-actions>
+</mat-card>
