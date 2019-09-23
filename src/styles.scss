@@ -12,8 +12,8 @@
 
 // import custom component themes here
 @import 'styles-reset.scss-theme';
-@import 'app/modules/home/page/project-item/project-item.component.scss-theme.scss';
-@import 'app/modules/home/page/project-details/project-details.component.scss-theme.scss';
+@import 'app/modules/home/page/content-item/content-item.component.scss-theme.scss';
+@import 'app/modules/home/page/content-details/content-details.component.scss-theme.scss';
 @import 'app/modules/contact/page/contact/contact.component.scss-theme.scss';
 
 @mixin custom-components-theme($theme) {

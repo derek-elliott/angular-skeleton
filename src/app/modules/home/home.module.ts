@@ -1,27 +1,23 @@
 import { NgModule } from '@angular/core';
 
-import { MyModalComponent } from './modal/my-modal.component';
+import { HomeComponent } from '@modules/home/page/home/home.component';
+import { HomeRoutingModule } from '@modules/home/home.routing';
 
-import { HomeComponent } from './page/home/home.component';
-import { HomeRoutingModule } from './home.routing';
-
-import { SharedModule } from '@shared/shared.module';
-import { ProjectItemComponent } from './page/project-item/project-item.component';
-import { ProjectDetailsComponent } from './page/project-details/project-details.component';
+import { SharedModule } from '@app/shared/shared.module';
+import { ContentItemComponent } from '@modules/home/page/content-item/content-item.component';
+import { ContentDetailsComponent } from '@modules/home/page/content-details/content-details.component';
 
 @NgModule({
     declarations: [
         HomeComponent,
-        MyModalComponent,
-        ProjectItemComponent,
-        ProjectDetailsComponent
+        ContentItemComponent,
+        ContentDetailsComponent
     ],
     imports: [
         SharedModule,
         HomeRoutingModule
     ],
     exports: [],
-    providers: [],
-    entryComponents: [MyModalComponent]
+    providers: []
 })
 export class HomeModule {}

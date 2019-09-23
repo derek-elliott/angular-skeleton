@@ -3,13 +3,13 @@ import { ActivatedRouteSnapshot, Resolve, Router, RouterStateSnapshot } from '@a
 import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { Project } from '@app/schema/project';
+import { Project } from '@app/schema/content';
 import { ProjectService } from '@app/service/project.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectResolver implements Resolve<Project> {
+export class ProjectResolver implements Resolve<Content> {
   constructor(
     private projectService: ProjectService,
     private router: Router

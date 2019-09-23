@@ -1,8 +1,8 @@
-export class Project {
-  link: string;
+export class Content {
+  id: int;
   title: string;
   subtitle: string;
   thumbnail: string;
   thumbnailAltTxt: string;
-  content: string;
+  description: string;
 }

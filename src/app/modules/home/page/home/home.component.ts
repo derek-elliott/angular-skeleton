@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { ProjectService } from '@app/service/project.service';
-import { Project } from '@app/schema/project';
+import { Project } from '@app/schema/content';
 import { Observable } from 'rxjs';
 
-import { MyModalComponent } from '../../modal/my-modal.component';
+import { ModalService } from '@app/service/modal.service';
 
 @Component({
     selector: 'app-home',
@@ -14,26 +14,39 @@ import { MyModalComponent } from '../../modal/my-modal.component';
 })
 export class HomeComponent implements OnInit {
 
-  projects$: Observable<Project[]>;
+  content: Content[];
 
   constructor(
-    private modalService: NgbModal,
+    private modalService: ModalService,
     private projectService: ProjectService
   ) {}
 
   ngOnInit(): void {
-    this.loadProjects();
-  }
-
-  loadProjects() {
-    this.projects$ = this.projectService.getAll();
-  }
-
-  openMyModal() {
-    const modalRef = this.modalService.open(MyModalComponent);
-    modalRef.componentInstance.id = 1;
-    modalRef.result.then((result) => {
-      console.log(result);
-    });
+    this.content = [
+      {
+        id: 1,
+        title: "Title of Article 1.",
+        subtitle: "Subtitle",
+        thumbnail: "/assets/images/article-1.jpeg",
+        thumbnailAltTxt: "Flags!",
+        description: "Description of the first article."
+      },
+      {
+        id: 2,
+        title: "Title of Article 2.",
+        subtitle: "Subtitle",
+        thumbnail: "/assets/images/article-2.jpeg",
+        thumbnailAltTxt: "Village!",
+        description: "Description of the second article."
+      },
+      {
+        id: 3,
+        title: "Title of Article 3",
+        subtitle: "Subtitle",
+        thumbnail: "/assets/images/article-3.jpeg",
+        thumbnailAltTxt: "Aurora!",
+        description: "Description of the third article."
+      }
+    ]
   }
 }

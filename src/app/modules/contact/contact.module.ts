@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 
-import { SharedModule } from '@shared/shared.module';
-import { ContactRoutes } from './contact.routing';
-import { ContactComponent } from './page/contact/contact.component';
+import { SharedModule } from '@app/shared/shared.module';
+import { ContactRoutes } from '@modules/contact/contact.routing';
+import { ContactComponent } from '@modules/contact/page/contact/contact.component';
 
 
 @NgModule({

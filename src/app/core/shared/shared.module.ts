@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
-import { MaterialModule } from './material.module';
+import { MaterialModule } from '@app/shared/material.module';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
@@ -68,8 +68,9 @@ library.add(
   faBook
 );
 
-import { ControlMessagesComponent } from './component/control-messages/control-messages.component';
-import { SpinnerComponent } from './component/spinner/spinner.component';
+import { ControlMessagesComponent } from '@app/shared/component/control-messages/control-messages.component';
+import { SpinnerComponent } from '@app/shared/component/spinner/spinner.component';
+import { ModalComponent } from '@app/shared/component/modal/modal.component';
 
 @NgModule({
   imports: [
@@ -81,7 +82,7 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
     NgbModule,
     FontAwesomeModule
   ],
-  declarations: [ControlMessagesComponent, SpinnerComponent],
+  declarations: [ControlMessagesComponent, SpinnerComponent, ModalComponent],
   exports: [
     CommonModule,
     FormsModule,
@@ -95,7 +96,9 @@ import { SpinnerComponent } from './component/spinner/spinner.component';
     NgxMasonryModule,
 
     ControlMessagesComponent,
-    SpinnerComponent
-  ]
+    SpinnerComponent,
+    ModalComponent
+  ],
+  entryComponents: [ModalComponent]
 })
 export class SharedModule {}

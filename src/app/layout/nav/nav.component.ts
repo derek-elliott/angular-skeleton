@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { environment } from '@env';
 import { Observable } from 'rxjs';
-import { ThemeService } from 'app/core/service/theme.service';
+import { ThemeService } from '@app/service/theme.service';
 
 @Component({
   selector: 'app-nav',

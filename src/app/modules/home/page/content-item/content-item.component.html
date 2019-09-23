@@ -1,0 +1,13 @@
+<div class='card-container'>
+  <mat-card>
+    <mat-card-header class="card-header">
+      <mat-card-title class="card-title">{{ content.title }}</mat-card-title>
+      <mat-card-subtitle class="card-subtitle">{{ content.subtitle }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image [src]="content.thumbnail" [alt]="content.thumbnailAltTxt">
+    <mat-card-content>{{ content.description }}</mat-card-content>
+    <mat-card-actions>
+      <button class="active" mat-button [routerLink]="['/dashboard/content/', content.id]">READ MORE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

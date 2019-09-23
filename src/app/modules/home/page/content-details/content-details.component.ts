@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Component({
-  selector: 'app-project-details',
-  templateUrl: './project-details.component.html',
-  styleUrls: ['./project-details.component.scss']
+  selector: 'app-content-details',
+  templateUrl: './content-details.component.html',
+  styleUrls: ['./content-details.component.scss']
 })
-export class ProjectDetailsComponent implements OnInit {
+export class ContentDetailsComponent implements OnInit {
   project$: Observable<Project>;
 
   constructor(private route: ActivatedRoute) {}

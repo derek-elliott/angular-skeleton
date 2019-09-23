@@ -3,10 +3,10 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
     selector: 'app-my-modal',
-    templateUrl: './my-modal.component.html',
-    styleUrls: ['./my-modal.component.scss']
+    templateUrl: './modal.component.html',
+    styleUrls: ['./modal.component.scss']
 })
-export class MyModalComponent implements OnInit {
+export class ModalComponent implements OnInit {
 
   @Input() id;
 
