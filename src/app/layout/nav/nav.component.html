@@ -2,10 +2,10 @@
   <div class="toolbar">
     <mat-toolbar color="primary">
       <div class="container">
-        <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none">
+        <span routerLink="/dashboard/home" class="branding spacer center d-none d-sm-inline d-md-none">
           {{ 'Angular Skeleton' }}
         </span>
-        <span routerLink="" class="branding spacer d-none d-md-inline">
+        <span routerLink="/dashboard/home" class="branding spacer d-none d-md-inline">
           {{ 'Angular Skeleton' }}
         </span>
         <span class="d-none d-md-inline">
@@ -13,7 +13,12 @@
             routerLinkActive="active">
             {{ item.title }}
           </button>
-          <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleTheme($event.checked)">Toggle Theme</mat-slide-toggle>
+          <mat-menu #appMenu="matMenu">
+            <mat-slide-toggle class="mat-menu-item" [checked]="isDarkTheme | async" (change)="toggleTheme($event.checked)">Toggle Theme</mat-slide-toggle>
+          </mat-menu>
+          <button mat-icon-button [matMenuTriggerFor]="appMenu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
         </span>
       </div>
     </mat-toolbar>
