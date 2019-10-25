@@ -12,7 +12,7 @@ export class JsonApiService {
       case '/projects':
         return of(data.projects);
       default:
-        const id = url.substring(url.lastIndexOf('/') + 1) - 1;
+        const id = url.substring(url.lastIndexOf('/') + 1);
         return of(data.projects[id]);
     }
   }

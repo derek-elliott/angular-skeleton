@@ -11,13 +11,13 @@ import { ThemeService } from '@app/service/theme.service';
 })
 export class NavComponent implements OnInit {
   public version = environment.version;
-  public repoUrl = 'https://github.com/mathisGarberg/angular-folder-structure';
   public isDarkTheme$: Observable<boolean>;
 
   navItems = [
     { link: '/dashboard/home', title: 'Home' },
     { link: '/about', title: 'About' },
-    { link: '/contact', title: 'Contact' }
+    { link: '/contact', title: 'Contact' },
+    { link: '/admin', title: 'Admin Console'}
   ];
 
   constructor(

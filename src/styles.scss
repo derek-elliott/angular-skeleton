@@ -15,12 +15,14 @@
 @import 'app/modules/home/page/content-item/content-item.component.scss-theme.scss';
 @import 'app/modules/home/page/content-details/content-details.component.scss-theme.scss';
 @import 'app/modules/contact/page/contact/contact.component.scss-theme.scss';
+@import 'app/modules/about/page/about/about.component.scss-theme.scss';
 
 @mixin custom-components-theme($theme) {
   @include my-styles-reset-theme($theme);
   @include my-project-item-component-theme($theme);
   @include my-project-description-component-theme($theme);
   @include my-contact-component-theme($theme);
+  @include my-about-component-theme($theme);
 }
 
 .my-light-theme {

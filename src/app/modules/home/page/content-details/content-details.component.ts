@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Project } from '@app/schema/project';
+import { Content } from '@app/schema/content';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./content-details.component.scss']
 })
 export class ContentDetailsComponent implements OnInit {
-  project$: Observable<Project>;
+  project$: Observable<Content>;
 
   constructor(private route: ActivatedRoute) {}
 

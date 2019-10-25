@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { ProjectService } from '@app/service/project.service';
-import { Project } from '@app/schema/content';
 import { Observable } from 'rxjs';
 
+import { Content } from '@app/schema/content';
 import { ModalService } from '@app/service/modal.service';
 
 @Component({
@@ -17,8 +16,7 @@ export class HomeComponent implements OnInit {
   content: Content[];
 
   constructor(
-    private modalService: ModalService,
-    private projectService: ProjectService
+    private modalService: ModalService
   ) {}
 
   ngOnInit(): void {
