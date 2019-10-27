@@ -6,18 +6,18 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ThemeService {
-  private isDarkTheme: Subject<boolean>;
+  private theme: Subject<string>;
 
   constructor() {
-    this.isDarkTheme = new Subject<boolean>();
-    this.isDarkTheme.next(false);
+    this.theme = new Subject<string>();
+    this.theme.next('my-light-theme');
   }
 
-  setDarkTheme(isDarkTheme: boolean) {
-    this.isDarkTheme.next(isDarkTheme);
+  setTheme(theme: string) {
+    this.theme.next(theme);
   }
 
-  getDarkTheme(): Observable<boolean> {
-    return this.isDarkTheme;
+  getTheme(): Observable<string> {
+    return this.theme;
   }
 }

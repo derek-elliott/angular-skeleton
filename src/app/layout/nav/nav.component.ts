@@ -11,8 +11,8 @@ import { ThemeService } from '@app/service/theme.service';
 })
 export class NavComponent implements OnInit {
   public version = environment.version;
-  public repoUrl = 'https://github.com/mathisGarberg/angular-folder-structure';
-  public isDarkTheme$: Observable<boolean>;
+  public theme: Observable<string>;
+  public isDarkTheme: boolean = false
 
   navItems = [
     { link: '/dashboard/home', title: 'Home' },
@@ -20,15 +20,19 @@ export class NavComponent implements OnInit {
     { link: '/contact', title: 'Contact' }
   ];
 
-  constructor(
-    private themeService: ThemeService
-  ) {}
+  constructor(private themeService: ThemeService) {}
 
-  ngOnInit() {
-    this.isDarkTheme$ = this.themeService.getDarkTheme();
-  }
+  public checked: boolean;
+
+  ngOnInit() {}
 
   toggleTheme(checked: boolean) {
-    this.themeService.setDarkTheme(checked);
+    if(checked){
+      this.isDarkTheme = true;
+      this.themeService.setTheme("my-dark-theme");
+    } else {
+      this.isDarkTheme = false;
+      this.themeService.setTheme("my-light-theme");
+    }
   }
 }

@@ -8,6 +8,7 @@ import { MaterialModule } from '@app/shared/material.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxMasonryModule } from 'ngx-masonry';
+import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
 import {
@@ -35,7 +36,14 @@ import {
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
+  faBold,
+  faItalic,
+  faLink,
+  faImage,
+  faList,
+  faListOl,
+  faEye
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
@@ -65,7 +73,14 @@ library.add(
   faLightbulb,
   faWindowMaximize,
   faStream,
-  faBook
+  faBook,
+  faBold,
+  faItalic,
+  faLink,
+  faImage,
+  faList,
+  faListOl,
+  faEye
 );
 
 import { ControlMessagesComponent } from '@app/shared/component/control-messages/control-messages.component';
@@ -80,7 +95,21 @@ import { ModalComponent } from '@app/shared/component/modal/modal.component';
     RouterModule,
 
     NgbModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    MarkdownModule.forRoot({
+      markedOptions: {
+        provide: MarkedOptions,
+        useValue: {
+          gfm: true,
+          tables: true,
+          breaks: true,
+          pedantic: false,
+          sanitize: false,
+          smartLists: true,
+          smartypants: false
+        },
+      },
+    })
   ],
   declarations: [ControlMessagesComponent, SpinnerComponent, ModalComponent],
   exports: [

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { of, Observable, throwError } from 'rxjs';
 
 import { User } from '@app/schema/user';
@@ -10,7 +11,7 @@ interface LoginContextInterface {
 }
 
 const defaultUser = {
-  username: 'defaultuser',
+  username: 'admin',
   password: '12345',
   token: '12345'
 };
@@ -19,6 +20,14 @@ const defaultUser = {
   providedIn: 'root'
 })
 export class AuthService {
+
+  constructor(public jwtHelper: JwtHelperService) {}
+
+  public isAuthenticated(): boolean {
+    const token = localStorage.getItem('token');
+    return !this.jwtHelper.isTokenExpired(token);
+  }
+
   token: string;
 
   login(loginContext: LoginContextInterface): Observable<User> {
@@ -26,6 +35,7 @@ export class AuthService {
       loginContext.username === defaultUser.username &&
       loginContext.password === defaultUser.password
     ) {
+        localStorage.setItem('token', defaultUser.token);
         return of(defaultUser);
     }
 

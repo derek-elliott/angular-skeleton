@@ -1,21 +1,23 @@
-<div class="wrapper">
-  <div class="toolbar">
-    <mat-toolbar color="primary">
-      <div class="container">
-        <span routerLink="" class="branding spacer center d-none d-sm-inline d-md-none">
-          {{ 'Angular Skeleton' }}
-        </span>
-        <span routerLink="" class="branding spacer d-none d-md-inline">
-          {{ 'Angular Skeleton' }}
-        </span>
-        <span class="d-none d-md-inline">
-          <button mat-button class="nav-button" *ngFor="let item of navItems" [routerLink]="[item.link]"
-            routerLinkActive="active">
-            {{ item.title }}
-          </button>
-          <mat-slide-toggle [checked]="isDarkTheme | async" (change)="toggleTheme($event.checked)">Toggle Theme</mat-slide-toggle>
-        </span>
-      </div>
-    </mat-toolbar>
+<mat-toolbar color="primary">
+  <span routerLink="/dashboard/home" class="branding spacer d-none d-md-inline">
+    {{ 'Angular Skeleton' }}
+  </span>
+  <span class="nav-buttons">
+    <button mat-button class="nav-button" *ngFor="let item of navItems" [routerLink]="[item.link]"
+      routerLinkActive="active">
+      {{ item.title }}
+    </button>
+  </span>
+  <div class="menu-wrapper">
+    <mat-menu #appMenu="matMenu" xPosition="before">
+      <button mat-menu-item>
+        <span>Dark Theme</span>
+        <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event.checked)" (click)="$event.stopPropagation();"></mat-slide-toggle>
+      </button>
+      <button mat-menu-item>Logout</button>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="appMenu">
+      <mat-icon>menu</mat-icon>
+    </button>
   </div>
-</div>
+</mat-toolbar>

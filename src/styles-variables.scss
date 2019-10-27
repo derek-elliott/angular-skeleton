@@ -12,3 +12,6 @@ $grid-breakpoints: (
   lg: 992px,
   xl: 1200px
 );
+
+$success-colors: mat-palette($mat-green, 400);
+$warning-colors: mat-palette($mat-amber, 400);

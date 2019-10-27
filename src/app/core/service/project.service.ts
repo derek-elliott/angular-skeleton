@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
-import { Project } from '@app/schema/project';
+import { Content } from '@app/schema/content';
 import { JsonApiService } from '@app/service/json-api.service';
 
 @Injectable({
@@ -12,11 +12,11 @@ export class ProjectService {
     private jsonApiService: JsonApiService
   ) {}
 
-  getAll(): Observable<Array<Project>> {
+  getAll(): Observable<Array<Content>> {
     return this.jsonApiService.get('/projects');
   }
 
-  getSingle(id: number): Observable<Project> {
+  getSingle(id: number): Observable<Content[]> {
     return this.jsonApiService.get('/projects/' + id);
   }
 }

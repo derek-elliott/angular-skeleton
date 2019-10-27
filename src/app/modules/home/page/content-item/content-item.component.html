@@ -7,7 +7,7 @@
     <img mat-card-image [src]="content.thumbnail" [alt]="content.thumbnailAltTxt">
     <mat-card-content>{{ content.description }}</mat-card-content>
     <mat-card-actions>
-      <button class="active" mat-button [routerLink]="['/dashboard/content/', content.id]">READ MORE</button>
+      <button class="active" mat-button [routerLink]="['/dashboard/content/', content.slug]">READ MORE</button>
     </mat-card-actions>
   </mat-card>
 </div>

@@ -6,6 +6,7 @@ import { HomeRoutingModule } from '@modules/home/home.routing';
 import { SharedModule } from '@app/shared/shared.module';
 import { ContentItemComponent } from '@modules/home/page/content-item/content-item.component';
 import { ContentDetailsComponent } from '@modules/home/page/content-details/content-details.component';
+import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
     declarations: [
@@ -15,7 +16,8 @@ import { ContentDetailsComponent } from '@modules/home/page/content-details/cont
     ],
     imports: [
         SharedModule,
-        HomeRoutingModule
+        HomeRoutingModule,
+        MarkdownModule.forChild()
     ],
     exports: [],
     providers: []

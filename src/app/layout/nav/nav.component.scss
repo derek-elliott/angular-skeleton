@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+}
+
+.menu-wrapper {
+  margin-left: auto;
+}
+
+::ng-deep .mat-menu-content {
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  width: 150px !important;
+  text-align: center !important;
+}
+
+.mat-menu-item {
+  line-height: 35px;
+  height: 35px;
+}
+
+.nav-buttons {
+  padding-left: 20px;
+}

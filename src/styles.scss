@@ -1,6 +1,9 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
 @import 'styles-variables';
 
 @import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
 @import 'style-reset';
 
 @import '~@angular/material/theming';
@@ -12,15 +15,19 @@
 
 // import custom component themes here
 @import 'styles-reset.scss-theme';
-@import 'app/modules/home/page/content-item/content-item.component.scss-theme.scss';
-@import 'app/modules/home/page/content-details/content-details.component.scss-theme.scss';
-@import 'app/modules/contact/page/contact/contact.component.scss-theme.scss';
+@import 'app/modules/home/page/content-item/content-item.component.scss-theme';
+@import 'app/modules/home/page/content-details/content-details.component.scss-theme';
+@import 'app/modules/contact/page/contact/contact.component.scss-theme';
+@import 'app/modules/about/page/about/about.component.scss-theme';
+@import 'app/app.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
   @include my-styles-reset-theme($theme);
   @include my-project-item-component-theme($theme);
   @include my-project-description-component-theme($theme);
   @include my-contact-component-theme($theme);
+  @include my-app-component-theme($theme);
+  @include my-about-component-theme($theme);
 }
 
 .my-light-theme {

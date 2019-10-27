@@ -7,11 +7,6 @@ import { NoAuthGuard } from '@app/guard/no-auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: '/auth/login',
-    pathMatch: 'full'
-  },
-  {
-    path: '',
     component: ContentLayoutComponent,
     canActivate: [NoAuthGuard], // Should be replaced with actual auth guard
     children: [
@@ -39,11 +34,11 @@ const routes: Routes = [
       import('@modules/auth/auth.module').then(m => m.AuthModule)
   },
   // Fallback when no prior routes is matched
-  { path: '**', redirectTo: '/auth/login', pathMatch: 'full' }
+  { path: '**', redirectTo: '/dashboard/home', pathMatch: 'full' }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
   providers: []
 })

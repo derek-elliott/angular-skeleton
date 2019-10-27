@@ -1,15 +1,9 @@
 @import '~@angular/material/theming';
 
 @mixin my-contact-component-theme($theme) {
-  $accent: map-get($theme, accent);
+  $primary: map-get($theme, primary);
 
-  .active {
-    color: mat-color($accent, default-contrast);
-    background-color: mat-color($accent);
-
-    &:hover {
-      color: mat-color($accent, default-contrast);
-      background-color: mat-color($accent);
-    }
+  .contact-wrapper {
+    background: mat-color($primary)
   }
 }

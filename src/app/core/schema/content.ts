@@ -1,5 +1,5 @@
 export class Content {
-  id: int;
+  id: number;
   title: string;
   subtitle: string;
   thumbnail: string;

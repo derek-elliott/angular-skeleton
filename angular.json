@@ -36,9 +36,43 @@
               }
             ],
             "styles": [
-              { "input": "src/styles.scss" }
+              "src/styles.scss",
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/marked/lib/marked.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.min.js",
+              "node_modules/prismjs/components/prism-apacheconf.min.js",
+              "node_modules/prismjs/components/prism-bash.min.js",
+              "node_modules/prismjs/components/prism-brainfuck.min.js",
+              "node_modules/prismjs/components/prism-css.min.js",
+              "node_modules/prismjs/components/prism-css-extras.min.js",
+              "node_modules/prismjs/components/prism-docker.min.js",
+              "node_modules/prismjs/components/prism-gcode.min.js",
+              "node_modules/prismjs/components/prism-git.min.js",
+              "node_modules/prismjs/components/prism-go.min.js",
+              "node_modules/prismjs/components/prism-groovy.min.js",
+              "node_modules/prismjs/components/prism-http.min.js",
+              "node_modules/prismjs/components/prism-ini.min.js",
+              "node_modules/prismjs/components/prism-java.min.js",
+              "node_modules/prismjs/components/prism-javascript.min.js",
+              "node_modules/prismjs/components/prism-jq.min.js",
+              "node_modules/prismjs/components/prism-json.min.js",
+              "node_modules/prismjs/components/prism-latex.min.js",
+              "node_modules/prismjs/components/prism-makefile.min.js",
+              "node_modules/prismjs/components/prism-nginx.min.js",
+              "node_modules/prismjs/components/prism-protobuf.min.js",
+              "node_modules/prismjs/components/prism-python.min.js",
+              "node_modules/prismjs/components/prism-r.min.js",
+              "node_modules/prismjs/components/prism-regex.min.js",
+              "node_modules/prismjs/components/prism-scss.min.js",
+              "node_modules/prismjs/components/prism-sql.min.js",
+              "node_modules/prismjs/components/prism-toml.min.js",
+              "node_modules/prismjs/components/prism-typescript.min.js",
+              "node_modules/prismjs/components/prism-yaml.min.js"
+            ]
           },
           "configurations": {
             "production": {
