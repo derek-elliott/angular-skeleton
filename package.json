@@ -41,6 +41,7 @@
 		"ngx-markdown": "^8.1.1",
 		"ngx-masonry": "^1.1.2",
 		"ngx-spinner": "^6.1.2",
+		"prism": "^4.1.2",
 		"rxjs": "^6.5.2",
 		"rxjs-compat": "^6.2.2",
 		"uuid": "^3.3.2",

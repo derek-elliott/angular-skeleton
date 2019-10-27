@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
-import { Content } from '@app/schema/content';
 import { Observable } from 'rxjs';
 
 import { Content } from '@app/schema/content';
@@ -22,8 +21,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.projectService.getAll().subscribe(content => {
-      this.content = content;
-    });
   }
 }

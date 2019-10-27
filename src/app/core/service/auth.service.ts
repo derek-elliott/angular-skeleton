@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
-import { of, Observable, throwError } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { User } from '@app/schema/user';
+import { environment } from '@env';
 
 interface LoginContextInterface {
   username: string;
@@ -20,33 +22,29 @@ const defaultUser = {
   providedIn: 'root'
 })
 export class AuthService {
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
-  constructor(public jwtHelper: JwtHelperService) {}
-
-  public isAuthenticated(): boolean {
-    const token = localStorage.getItem('token');
-    return !this.jwtHelper.isTokenExpired(token);
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
   }
 
-  token: string;
+  public get currentUserValue(): User {
+    return this.currentUserSubject.value;
+  }
 
   login(loginContext: LoginContextInterface): Observable<User> {
-    if (
-      loginContext.username === defaultUser.username &&
-      loginContext.password === defaultUser.password
-    ) {
-        localStorage.setItem('token', defaultUser.token);
-        return of(defaultUser);
-    }
-
-    return throwError('Invalid username or password');
+    return this.http.post<any>(environment.apiUrl + '/users/authenticate', {user: loginContext.username, password: loginContext.password})
+      .pipe(map(user => {
+        localStorage.setItem('currentUser', JSON.stringify(user));
+        this.currentUserSubject.next(user);
+        return user;
+      }))
   }
 
-  logout(): Observable<boolean> {
-    return of(false);
-  }
-
-  getToken() {
-    return this.getToken;
+  logout() {
+    localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null)
   }
 }
