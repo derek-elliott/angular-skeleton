@@ -1,0 +1,9 @@
+@import '~@angular/material/theming';
+
+@mixin my-about-component-theme($theme) {
+  $primary: map-get($theme, primary);
+
+  .about-wrapper {
+    background: mat-color($primary)
+  }
+}
