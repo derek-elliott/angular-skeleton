@@ -1,12 +1,11 @@
 <mat-card class="custom-card front">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{ project.title }}</mat-card-title>
-    <mat-card-subtitle>{{ project.subtitle }}</mat-card-subtitle>
+    <mat-card-title>{{ content.title }}</mat-card-title>
+    <mat-card-subtitle>{{ content.subtitle }}</mat-card-subtitle>
   </mat-card-header>
-  <img mat-card-image [src]="project.thumbnail" [alt]="project.thumbnailAltTxt">
-  <mat-card-content><markdown lineNumbers ngPreserveWhitespaces [data]="project.content"></markdown></mat-card-content>
-  <i class="fab fa-bold"></i>
+  <img mat-card-image [src]="content.thumbnail" [alt]="content.thumbnailAltTxt">
+  <mat-card-content><markdown lineNumbers ngPreserveWhitespaces [data]="content.content"></markdown></mat-card-content>
   <mat-card-actions>
     <button class="active" mat-button [routerLink]="['/dashboard/home']">Close</button>
   </mat-card-actions>

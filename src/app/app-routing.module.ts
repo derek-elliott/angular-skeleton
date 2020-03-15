@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
+// import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
 import { NoAuthGuard } from '@app/guard/no-auth.guard';
+import { PostsResolverService } from '@app/service/posts-resolver.service';
 
 const routes: Routes = [
   {
@@ -13,7 +14,10 @@ const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: () =>
-          import('@modules/home/home.module').then(m => m.HomeModule)
+          import('@modules/home/home.module').then(m => m.HomeModule),
+        resolve: {
+          content: PostsResolverService
+        }
       },
       {
         path: 'about',
@@ -25,19 +29,19 @@ const routes: Routes = [
         loadChildren: () =>
           import('@modules/contact/contact.module').then(m => m.ContactModule)
       },
-      {
-        path: 'admin',
-        loadChildren: () =>
-          import('@modules/admin/admin.module').then(m => m.AdminModule)
-      }
+      // {
+      //   path: 'admin',
+      //   loadChildren: () =>
+      //     import('@modules/admin/admin.module').then(m => m.AdminModule)
+      // }
     ]
   },
-  {
-    path: 'auth',
-    component: AuthLayoutComponent,
-    loadChildren: () =>
-      import('@modules/auth/auth.module').then(m => m.AuthModule)
-  },
+  // {
+  //   path: 'auth',
+  //   component: AuthLayoutComponent,
+  //   loadChildren: () =>
+  //     import('@modules/auth/auth.module').then(m => m.AuthModule)
+  // },
   // Fallback when no prior routes is matched
   { path: '**', redirectTo: '/dashboard/home', pathMatch: 'full' }
 ];

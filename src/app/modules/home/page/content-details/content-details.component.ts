@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Content } from '@app/schema/content';
@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Logger } from '@app/service/logger.service';
+import {ContentDataService} from '@app/service/content-data.service';
 
 const logger = new Logger();
 
@@ -15,14 +16,15 @@ const logger = new Logger();
   styleUrls: ['./content-details.component.scss']
 })
 export class ContentDetailsComponent implements OnInit {
-  project: Content;
+  content: Content;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     this.route.data.subscribe(
-      data => {
-        this.project = data.project[0];
-    });
+        data => {
+          this.content = data.content;
+        }
+    );
   }
 }

@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { Content } from '@app/schema/content';
 import { ModalService } from '@app/service/modal.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
     selector: 'app-home',
@@ -16,10 +17,14 @@ export class HomeComponent implements OnInit {
   content: Content[];
 
   constructor(
-    private modalService: ModalService
+    private modalService: ModalService,
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-
+    this.route.data.subscribe(
+        data => {
+            this.content = data.content;
+    });
   }
 }

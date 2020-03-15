@@ -18,7 +18,7 @@ export class NavComponent implements OnInit {
     { link: '/dashboard/home', title: 'Home' },
     { link: '/about', title: 'About' },
     { link: '/contact', title: 'Contact' },
-    { link: '/admin', title: 'Admin Console'}
+    // { link: '/admin', title: 'Admin Console'}
   ];
 
   constructor(private themeService: ThemeService) {}
