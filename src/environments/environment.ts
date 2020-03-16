@@ -8,7 +8,8 @@ import env from './.env';
 export const environment = {
   production: false,
   version: env.npm_package_version + '-dev',
-  apiUrl: 'http://localhost:3000'
+  apiUrl: 'http://localhost:3000',
+  pageTitle: 'The Best Blog in the World!'
 };
 
 /*

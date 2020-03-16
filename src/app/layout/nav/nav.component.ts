@@ -11,11 +11,12 @@ import { ThemeService } from '@app/service/theme.service';
 })
 export class NavComponent implements OnInit {
   public version = environment.version;
+  public title = environment.pageTitle;
   public theme: Observable<string>;
-  public isDarkTheme: boolean = false
+  public isDarkTheme = false
 
   navItems = [
-    { link: '/dashboard/home', title: 'Home' },
+    { link: '/blog', title: 'Blog' },
     { link: '/about', title: 'About' },
     { link: '/contact', title: 'Contact' },
     // { link: '/admin', title: 'Admin Console'}
