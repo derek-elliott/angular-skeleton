@@ -1,29 +1,16 @@
-<div [hidden]="!error" class="alert alert-danger">
-  {{ error }}
+<div class="row justify-content-sm-center">
+    <div class="col-sm-10 col-md-6">
+        <div class="card border-info">
+            <div class="card-header">Login</div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <form>
+                            <button (click)="signIn()" class="btn btn-lg btn-primary btn-block mb-1" type="submit">Login with Google</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-<fieldset [disabled]="isLoading">
-  <form (ngSubmit)="login()" [formGroup]="loginForm">
-      <div class="form-group">
-        <label class="d-block">
-          <input type="text" class="form-control" [placeholder]="'Username'" formControlName="username">
-          <app-control-messages [control]="f['username']"></app-control-messages>
-        </label>
-      </div>
-      <div class="form-group">
-        <label class="d-block">
-          <input type="password" class="form-control" [placeholder]="'Password'" formControlName="password">
-          <app-control-messages [control]="f['password']"></app-control-messages>
-        </label>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block btn-raised" type="submit" [disabled]="loginForm.invalid">
-          <span [hidden]="isLoading">Submit</span>
-          <span [hidden]="!isLoading">
-            <fa-icon icon="asterisk" size="3x" [spin]="true"></fa-icon>
-          </span>
-        </button>
-      </div>
-      <a [routerLink]="['/auth/register']">Don't have an account? Sign up here!</a>
-  </form>
-</fieldset>

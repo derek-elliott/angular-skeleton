@@ -9,12 +9,17 @@ import { SharedModule } from '@app/shared/shared.module';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { ContentLayoutComponent } from '@layout/content-layout/content-layout.component';
-import { NavComponent } from '@layout/nav/nav.component';
-import { FooterComponent } from '@layout/footer/footer.component';
+import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
+import { NavComponent } from './layout/nav/nav.component';
+import { FooterComponent } from './layout/footer/footer.component';
 
-import { AuthLayoutComponent } from '@layout/auth-layout/auth-layout.component';
+import { AuthModule } from '@modules/auth/auth.module';
+import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { environment } from '@env';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -26,14 +31,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   imports: [
     BrowserModule,
+    AuthModule,
     CoreModule,
     SharedModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireAuthModule
   ],
-  providers: [
-
-  ],
+  providers: [AngularFirestore],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

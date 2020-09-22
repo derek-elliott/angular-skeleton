@@ -4,6 +4,7 @@ import env from './.env';
 export const environment = {
   production: true,
   version: env.npm_package_version,
-  apiUrl: 'https://something.com',
-  pageTitle: 'The Best Blog in the World'
+  serverUrl: '/api',
+  envName: 'PROD',
+  API_URL: 'assets/api'
 };

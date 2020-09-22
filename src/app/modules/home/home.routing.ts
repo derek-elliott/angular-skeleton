@@ -7,6 +7,11 @@ import { PostResolverService } from '@app/service/post-resolver.service';
 export const routes: Routes = [
   {
     path: '',
+    redirectTo: 'home',
+    pathMatch: 'full'
+  },
+  {
+    path: 'home',
     component: HomeComponent
   },
   {

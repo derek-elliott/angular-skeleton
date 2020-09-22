@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+// import { AuthLayoutComponent } from './layout/auth-layout/auth-layout.component';
 import { ContentLayoutComponent } from './layout/content-layout/content-layout.component';
-import { NoAuthGuard } from '@app/guard/no-auth.guard';
+import { AuthGuard } from '@app/guard/auth.guard';
 import { PostsResolverService } from '@app/service/posts-resolver.service';
+
+import { Role } from '@app/schema/user';
 
 const routes: Routes = [
   {
     path: '',
     component: ContentLayoutComponent,
-    canActivate: [NoAuthGuard], // Should be replaced with actual auth guard
     children: [
       {
-        path: 'blog',
+        path: 'dashboard',
         loadChildren: () =>
           import('@modules/home/home.module').then(m => m.HomeModule),
         resolve: {
@@ -28,15 +30,21 @@ const routes: Routes = [
         loadChildren: () =>
           import('@modules/contact/contact.module').then(m => m.ContactModule)
       },
-      {
-        path: '',
-        redirectTo: 'blog',
-        pathMatch: 'full'
-      }
+      // {
+      //   path: 'admin',
+      //   loadChildren: () =>
+      //     import('@modules/admin/admin.module').then(m => m.AdminModule)
+      // }
     ]
   },
+  // {
+  //   path: 'auth',
+  //   component: AuthLayoutComponent,
+  //   loadChildren: () =>
+  //     import('@modules/auth/auth.module').then(m => m.AuthModule)
+  // },
   // Fallback when no prior routes is matched
-  { path: '**', redirectTo: 'blog', pathMatch: 'full' }
+  { path: '**', redirectTo: '/dashboard/home', pathMatch: 'full' }
 ];
 
 @NgModule({

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from '@env';
 import { Observable } from 'rxjs';
 import { ThemeService } from '@app/service/theme.service';
+import {AuthService} from '@app/service/auth.service';
 
 @Component({
   selector: 'app-nav',
@@ -11,22 +12,19 @@ import { ThemeService } from '@app/service/theme.service';
 })
 export class NavComponent implements OnInit {
   public version = environment.version;
-  public title = environment.pageTitle;
   public theme: Observable<string>;
-  public isDarkTheme = false
+  public isDarkTheme = false;
 
   navItems = [
-    { link: '/blog', title: 'Blog' },
+    { link: '/dashboard/home', title: 'Home' },
     { link: '/about', title: 'About' },
-    { link: '/contact', title: 'Contact' },
-    // { link: '/admin', title: 'Admin Console'}
+    { link: '/contact', title: 'Contact' }
   ];
 
   constructor(private themeService: ThemeService) {}
 
-  public checked: boolean;
-
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   toggleTheme(checked: boolean) {
     if(checked){

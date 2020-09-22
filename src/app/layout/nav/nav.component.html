@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
-  <span routerLink="blog" class="branding spacer d-none d-md-inline">
-    {{ this.title }}
+  <span routerLink="/dashboard/home" class="branding spacer d-none d-md-inline">
+    {{ 'Angular Skeleton' }}
   </span>
   <span class="nav-buttons">
     <button mat-button class="nav-button" *ngFor="let item of navItems" [routerLink]="[item.link]"
@@ -11,10 +11,11 @@
   <div class="menu-wrapper">
     <mat-menu #appMenu="matMenu" xPosition="before">
       <button mat-menu-item>
-        <span>Dark Theme</span>
-        <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event.checked)" (click)="$event.stopPropagation();"></mat-slide-toggle>
+        <mat-label class="label-before-slide">Dark Theme</mat-label>
+        <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event.checked)" (click)="$event.stopPropagation();">
+        </mat-slide-toggle>
       </button>
-      <button mat-menu-item>{{ 'Version: ' + this.version }}</button>
+<!--      <button mat-menu-item>Logout</button> -->
     </mat-menu>
     <button mat-icon-button [matMenuTriggerFor]="appMenu">
       <mat-icon>menu</mat-icon>

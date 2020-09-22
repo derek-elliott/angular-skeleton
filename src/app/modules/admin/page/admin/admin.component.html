@@ -1,1 +1,7 @@
-<p>admin works!</p>
+<div class="jumbotron about-wrapper" id="content">
+    <h1>Admin only area!</h1>
+    <div *ngIf="loading" class="spinner-border spinner-border-sm"></div>
+    <ul *ngIf="users">
+        <li *ngFor="let user of users">{{user.firstName}} {{user.lastName}}</li>
+    </ul>
+</div>

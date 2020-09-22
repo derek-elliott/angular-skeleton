@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { first } from 'rxjs/operators';
-import { of } from 'rxjs';
 
 import { AuthService } from '@app/service/auth.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,48 +10,24 @@ import { AuthService } from '@app/service/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  error: string;
-  isLoading: boolean;
-  loginForm: FormGroup;
-  returnUrl: string;
+  returnUrl: string
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private authService: AuthService
-  ) {
-    this.buildForm();
+  constructor(private authService: AuthService,
+              private route: ActivatedRoute,
+              private router: Router) {
   }
 
-  ngOnInit() {}
-
-  get f () {
-    return this.loginForm.controls;
+  signIn() {
+    this.authService.loginWithGoogle();
+    this.router.navigate([this.returnUrl]);
   }
 
-  login() {
-    this.isLoading = true;
-
-    const credentials = this.loginForm.value;
-
-    this.authService.login(credentials)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.router.navigate([this.returnUrl]);
-        },
-        error => {
-          this.error = error;
-          this.isLoading = false;
-        }
-      )
+  signout() {
+    this.authService.logout();
+    this.router.navigate([this.returnUrl]);
   }
 
-  private buildForm(): void {
-    this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
-    });
+  ngOnInit() {
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-
 }

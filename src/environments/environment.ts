@@ -9,7 +9,8 @@ export const environment = {
   production: false,
   version: env.npm_package_version + '-dev',
   apiUrl: 'http://localhost:3000',
-  pageTitle: 'The Best Blog in the World!'
+  pageTitle: 'The Best Blog in the World!',
+  authUrl: 'http://localhost:3001',
 };
 
 /*

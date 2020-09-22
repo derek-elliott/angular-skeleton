@@ -19,7 +19,6 @@
 @import 'app/modules/home/page/content-details/content-details.component.scss-theme';
 @import 'app/modules/contact/page/contact/contact.component.scss-theme';
 @import 'app/modules/about/page/about/about.component.scss-theme';
-@import 'app/layout/footer/footer.component.scss-theme';
 @import 'app/app.component.scss-theme';
 
 @mixin custom-components-theme($theme) {
@@ -29,7 +28,6 @@
   @include my-contact-component-theme($theme);
   @include my-app-component-theme($theme);
   @include my-about-component-theme($theme);
-  @include my-footer-component-theme($theme);
 }
 
 .my-light-theme {
