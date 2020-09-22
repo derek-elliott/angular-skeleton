@@ -9,7 +9,6 @@ import { AboutComponent } from '@modules/about/page/about/about.component';
   declarations: [AboutComponent],
   imports: [
     AboutRoutingModule,
-
     SharedModule
   ]
 })

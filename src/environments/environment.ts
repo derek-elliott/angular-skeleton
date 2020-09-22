@@ -9,7 +9,18 @@ export const environment = {
   production: false,
   version: env.npm_package_version + '-dev',
   apiUrl: 'http://localhost:3000',
-  pageTitle: 'The Best Blog in the World!'
+  pageTitle: 'The Best Blog in the World!',
+  authUrl: 'http://localhost:3001',
+  firebase: {
+    apiKey: "AIzaSyCPopbeoAHX88NJ6r36LHkHZqVbEgZmk1E",
+    authDomain: "sandbox-project-278614.firebaseapp.com",
+    databaseURL: "https://sandbox-project-278614.firebaseio.com",
+    projectId: "sandbox-project-278614",
+    storageBucket: "sandbox-project-278614.appspot.com",
+    messagingSenderId: "709636273327",
+    appId: "1:709636273327:web:3ed54083261e50f315105a",
+    measurementId: "G-3SHKWWD8V6"
+  }
 };
 
 /*
