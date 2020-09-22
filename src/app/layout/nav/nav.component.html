@@ -11,10 +11,10 @@
   <div class="menu-wrapper">
     <mat-menu #appMenu="matMenu" xPosition="before">
       <button mat-menu-item>
-        <span>Dark Theme</span>
-        <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event.checked)" (click)="$event.stopPropagation();"></mat-slide-toggle>
+        <mat-label class="label-before-slide">Dark Theme</mat-label>
+        <mat-slide-toggle [checked]="isDarkTheme" (change)="toggleTheme($event.checked)" (click)="$event.stopPropagation();">
+        </mat-slide-toggle>
       </button>
-      <button (click)="auth.logout()" mat-menu-item>Sign Out</button>
       <button mat-menu-item>{{ 'Version: ' + this.version }}</button>
     </mat-menu>
     <button mat-icon-button [matMenuTriggerFor]="appMenu">

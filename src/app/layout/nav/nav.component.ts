@@ -15,21 +15,16 @@ export class NavComponent implements OnInit {
   public title = environment.pageTitle;
   public theme: Observable<string>;
   public isDarkTheme = false;
-  public loggedIn: boolean;
 
   navItems = [
     { link: '/blog', title: 'Blog' },
     { link: '/about', title: 'About' },
-    { link: '/contact', title: 'Contact' },
-    { link: '/admin', title: 'Admin Console'}
+    { link: '/contact', title: 'Contact' }
   ];
 
-  constructor(private themeService: ThemeService,
-              public auth: AuthService) {}
+  constructor(private themeService: ThemeService) {}
 
   ngOnInit() {
-    const user = this.auth.getAuthUser();
-    this.loggedIn = !!user;
   }
 
   toggleTheme(checked: boolean) {
